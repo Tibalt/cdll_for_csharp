@@ -27,11 +27,39 @@ typedef struct {
 } yc;
 
 typedef struct { 
-     char arr[40];
+     char arbr[40];
 } yc_wrapper;
 
+typedef enum { red=101, green, blue,black } colour;
+NAG_DLL_EXPIMP void NAG_CALL EnumString(colour rainbow, char *rainbowcolour);
+NAG_DLL_EXPIMP void NAG_CALL EnumString(colour rainbow, char *rainbowcolour)
+{
+	 if (rainbow == black )
+	 {
+		strcpy(rainbowcolour, "Black is not a rainbow colour");
+	 }
+	 else
+	 {
+		strcpy(rainbowcolour, "This is a rainbow colour");
+	 }
+} 
 
 
+NAG_DLL_EXPIMP void transfer(char* buf,int *len,char *returnmsg);
+NAG_DLL_EXPIMP void transfer(char* buf,int *len, char *returnmsg)
+{
+	if(buf[0]==1)
+	{
+		strcpy(returnmsg, "buf[0]==a");
+	}
+	else if(buf[0]==2)
+	{
+		strcpy(returnmsg, "buf[0]==b");
+	}
+
+
+
+}
 //NAG_DLL_EXPIMP void NAG_CALL Tryyc(yc inputVar, yc *outputVar, int n, yc array[]);
 
  void Tryyc(yc inputVar, yc **outputVar, int n, yc array[])
